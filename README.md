@@ -22,8 +22,7 @@ When attempting to run the build of our vue app right away, you might notice the
 
     ```
     error TS7016: Could not find a declaration file for module './components/FullScreenMessage.vue'. It implicitly has an 'any' type.
-
-    3 import FullScreenMessage from './components/FullScreenMessage.vue';
+    import FullScreenMessage from './components/FullScreenMessage.vue';
     ```
 
 To fix this issue and to make sure that our _TypeScript building process_ can read our vue files with the correct types, we need to do the following:
@@ -38,15 +37,14 @@ To fix this issue and to make sure that our _TypeScript building process_ can re
     }
     ```
 
-    
-- This file should also should then be included in both our __tsconfig.node.json__ and __tsconfig.app.json__ files:
+- This file should also be included in our __tsconfig.node.json__ and __tsconfig.app.json__ files:
 
     ```json
     {
         "include": [
             "...",
             "shims-vue.d.*"
-    ]
+       ]
     }
     ```
 
@@ -61,13 +59,9 @@ Now with all of that ready, we can run the following command to build our projec
 This will generate our hostable web app in our _dist/_ directory, which includes our __index.html__ file that we can load in our Electron app.
 
 > [!NOTE]
-> The ```--base ./``` flag that we include is to make sure that all of our CSS and JS files are loaded in our __index.html__ from it's relative path, so that _file://_ loading works properly. This is essentially to avoiding that white screen when trying to open our __index.html__ file which is caused by this error:
+> The ```--base ./``` flag that we include is to make sure that all of our CSS and JS files are loaded in our __index.html__ from its relative path, so that _file://_ loading works properly. This is to avoid the white screen when trying to open our __index.html__ file, which is caused by this error: `Access to CSS stylesheet at 'file:///.../src/vue-project/dist/assets/index-BHK2zz_v.css' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, isolated-app.`
 
-> [!CAUTION]  
-> Access to CSS stylesheet at 'file:///.../src/vue-project/dist/assets/index-BHK2zz_v.css' from origin 'null' has been blocked by CORS policy: Cross origin requests are only supported for protocol schemes: chrome, chrome-extension, chrome-untrusted, data, http, https, isolated-app.
-
-
-Congratulations! You just built your vue application 🎉 Halfway there!
+Congratulations! You just built your Vue application 🎉 Halfway there!
 
 <hr>
 
@@ -135,4 +129,4 @@ Your Electron & Vue app is now built and bundled. You should see your applicatio
 ---
 
 > [!TIP]
-> Just a reminder, that even though Electron allows for cross-platform building, you will need to generate an `.exe`/`.msi` on a Windows computer, and an `.app` on MacOS.
+> Just a reminder that even though Electron allows for cross-platform building, you will need to generate an `.exe`/`.msi` on a Windows computer, and an `.app` on macOS.
