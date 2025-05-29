@@ -1,9 +1,9 @@
-<script setup lang="ts">
+<script setup>
 
 import FullScreenMessage from './components/FullScreenMessage.vue';
 
 </script>
 
 <template>
-  <FullScreenMessage></FullScreenMessage>
+  <FullScreenMessage />
 </template>

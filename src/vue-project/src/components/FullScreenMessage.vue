@@ -1,7 +1,7 @@
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 
-const selectedImage = ref('https://picsum.photos/1600/900')
+const selectedImage = ref('https://picsum.photos/1600/800')
 const MessageTo = ref('3rd-years')
 const Message = ref('May you always create bugs no one else can fix.')
 const MessageFrom = ref('Armand')
